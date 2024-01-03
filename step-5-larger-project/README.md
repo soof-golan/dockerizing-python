@@ -2,7 +2,9 @@
 
 ## TL;DR
 
-For the impatient, you can always skip to the [final result](/README.md#final-result) of the series.
+For the impatient, you can always skip to the take The Red Pill 💊 and skip to
+the [final result](/README.md#final-result) of the series.
+
 
 ## Table of Contents
 
@@ -18,6 +20,12 @@ For the impatient, you can always skip to the [final result](/README.md#final-re
 * [Extra 2 - Moving Complexity](/extra-2-pre-commit/README.md) - Moving complexity away from the Dockerfile into
   pre-commit hooks
 * [Final Result](/README.md#final-result) - The final result of the series
+
+### Running The Example
+
+```bash
+docker compose up --build
+```
 
 # What Changed?
 
@@ -51,3 +59,9 @@ in our production image, and what we leave out.
 
 * A _wee bit_ more complexity in our Dockerfile.
 * The `.dockerignore` file is doing non-trivial load-bearing work
+
+# Summary
+
+This is a good time to take a step back and look at our Dockerfile. This will fit most projects' needs, but there are
+still some dark corners of the python packaging ecosystem that we haven't explored yet. Let's fix that in
+[Step 6](/step-6-compiling-dependencies/README.md)

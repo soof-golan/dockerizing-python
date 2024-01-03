@@ -2,7 +2,9 @@
 
 ## TL;DR
 
-For the impatient, you can always skip to the [final result](/README.md#final-result) of the series.
+For the impatient, you can always skip to the take The Red Pill 💊 and skip to
+the [final result](/README.md#final-result) of the series.
+
 
 ## Table of Contents
 
@@ -19,6 +21,12 @@ For the impatient, you can always skip to the [final result](/README.md#final-re
   pre-commit hooks
 * [Final Result](/README.md#final-result) - The final result of the series
 
+### Running The Example
+
+```bash
+docker compose up --build
+```
+
 # What Changed?
 
 The Step 6 Image is already "production ready" for most projects' needs, but with some caching we can make it build even
@@ -33,3 +41,11 @@ faster.
 ### Things that got better
 
 * Our builds are even faster now (thanks to cache mounts, and a smaller base image for the `poetry-export` stage).
+
+# Summary
+
+Now your builds are even faster, but there's still some complexity in the Dockerfile. Let's move that complexity away
+from
+the Dockerfile in [Extra 2 - Moving Complexity](/extra-2-pre-commit/README.md)
+
+Alternatively, if you already read that, you can jump to the [final result](/README.md#final-result) of the series.

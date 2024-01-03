@@ -2,13 +2,16 @@
 
 ## TL;DR
 
-For the impatient, you can always skip to the [final result](/README.md#final-result) of the series.
+For the impatient, you can always skip to the take The Red Pill 💊 and skip to
+the [final result](/README.md#final-result) of the series.
+
 
 ## Table of Contents
 
 * [Step 1 - Keep it simple stupid](/step-1-kiss-requirements/README.md) - A simple Dockerfile
 * [Step 2 - Keep it simple - with Poetry](/step-2-kiss-poetry/README.md) - A simple Dockerfile with Poetry
-* [Step 3 - Basic Improvements](/step-3-basic-improvements/README.md) - A more robust Dockerfile, with a few improvements
+* [Step 3 - Basic Improvements](/step-3-basic-improvements/README.md) - A more robust Dockerfile, with a few
+  improvements
 * [Step 4 - Nontrivial Improvements](/step-4-nontrivial-improvements/README.md) - Advanced Dockerfile features
 * [Step 5 - Growing Pains](/step-5-larger-project/README.md) - Larger project require extra care
 * [Step 6 - Compiling Dependencies](/step-6-compiling-dependencies/README.md) - Handling packages that require
@@ -18,9 +21,16 @@ For the impatient, you can always skip to the [final result](/README.md#final-re
   pre-commit hooks
 * [Final Result](/README.md#final-result) - The final result of the series
 
+### Running The Example
+
+```bash
+docker-compose up --build
+```
+
 # What Changed?
 
-This is the poetry variant of the KISS Dockerized Python Image.
+We're all civilized people here, we're not going to use requirements.txt directly. We're going to use Poetry to manage
+our dependencies. This will make our lives easier in the long run.
 
 ## Changes from previous step
 
@@ -41,4 +51,9 @@ This is the poetry variant of the KISS Dockerized Python Image.
 * poetry is a new dependency that we have to manage.
 * poetry will create a virtual environment for us, which means we have to activate it before we can run our project.
 * This virtual environment also exists within our container.
+
+# So Far
+
+This is good enough to serve traffic, but there are a lot of wrong things here, let's fix these
+in [Step 3](/step-3-basic-improvements/README.md)
 

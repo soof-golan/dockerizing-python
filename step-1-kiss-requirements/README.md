@@ -2,13 +2,16 @@
 
 ## TL;DR
 
-For the impatient, you can always skip to the [final result](/README.md#final-result) of the series.
+For the impatient, you can always skip to the take The Red Pill 💊 and skip to
+the [final result](/README.md#final-result) of the series.
+
 
 ## Table of Contents
 
 * [Step 1 - Keep it simple stupid](/step-1-kiss-requirements/README.md) - A simple Dockerfile
 * [Step 2 - Keep it simple - with Poetry](/step-2-kiss-poetry/README.md) - A simple Dockerfile with Poetry
-* [Step 3 - Basic Improvements](/step-3-basic-improvements/README.md) - A more robust Dockerfile, with a few improvements
+* [Step 3 - Basic Improvements](/step-3-basic-improvements/README.md) - A more robust Dockerfile, with a few
+  improvements
 * [Step 4 - Nontrivial Improvements](/step-4-nontrivial-improvements/README.md) - Advanced Dockerfile features
 * [Step 5 - Growing Pains](/step-5-larger-project/README.md) - Larger project require extra care
 * [Step 6 - Compiling Dependencies](/step-6-compiling-dependencies/README.md) - Handling packages that require
@@ -18,14 +21,18 @@ For the impatient, you can always skip to the [final result](/README.md#final-re
   pre-commit hooks
 * [Final Result](/README.md#final-result) - The final result of the series
 
+### Running The Example
+
+```bash
+docker-compose up --build
+```
+
 # A Starting Point
 
 This is the requirements.txt variant of the KISS Dockerized Python Image.
 
 This will be our reference point for the rest of the examples, and we will incrementally improve it to a full-fledged
 production-ready image.
-
-FWIW, I believe most project can just do fine with this base image without any further changes.
 
 ## What's in this folder?
 
@@ -38,3 +45,8 @@ FWIW, I believe most project can just do fine with this base image without any f
   and build our image.
 * [`gunicorn.conf.py`](./gunicorn.conf.py) - A configuration file for our production
   server executable, [gunicorn](https://gunicorn.org/).
+
+# Summary
+
+This the simplest Dockerfile you can write for a Python project. let's improve it
+in [Step 2](/step-2-kiss-poetry/README.md)

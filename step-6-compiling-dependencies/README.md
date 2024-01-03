@@ -2,7 +2,8 @@
 
 ## TL;DR
 
-For the impatient, you can always skip to the [final result](/README.md#final-result) of the series.
+For the impatient, you can always skip to the take The Red Pill 💊 and skip to
+the [final result](/README.md#final-result) of the series.
 
 ## Table of Contents
 
@@ -18,6 +19,12 @@ For the impatient, you can always skip to the [final result](/README.md#final-re
 * [Extra 2 - Moving Complexity](/extra-2-pre-commit/README.md) - Moving complexity away from the Dockerfile into
   pre-commit hooks
 * [Final Result](/README.md#final-result) - The final result of the series
+
+### Running The Example
+
+```bash
+docker compose up --build
+```
 
 # What Changed?
 
@@ -57,3 +64,13 @@ If you like suffering from using `apt-get`, you can install the build dependenci
 
 Also - **Stay away from `alpine` images** unless you have excellent reasons to use them. You don't want to deal with the
 ABI / compilation hell that is `musl` vs `glibc` with python packages.
+
+# Summary
+
+You've made it this far, and you now have a production ready Dockerfile. Congratulations!
+We've covered a lot of ground, and you should now have a good understanding of how to build a Dockerfile for your
+project [~~FROM scratch~~](https://hub.docker.com/_/scratch/).
+
+We've got 2 extra steps to go, but they're not strictly necessary, but they will make your life easier in the long run.
+Check out [Extra 1 - Need For Speed](/extra-1-need-for-speed/README.md)
+and [Extra 2 - Moving Complexity](/extra-2-pre-commit/README.md) for more details.

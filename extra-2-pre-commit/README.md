@@ -2,7 +2,9 @@
 
 ## TL;DR
 
-For the impatient, you can always skip to the [final result](/README.md#final-result) of the series.
+For the impatient, you can always skip to the take The Red Pill 💊 and skip to
+the [final result](/README.md#final-result) of the series.
+
 
 ## Table of Contents
 
@@ -18,6 +20,12 @@ For the impatient, you can always skip to the [final result](/README.md#final-re
 * [Extra 2 - Moving Complexity](/extra-2-pre-commit/README.md) - Moving complexity away from the Dockerfile into
   pre-commit hooks
 * [Final Result](/README.md#final-result) - The final result of the series
+
+### Running The Example
+
+```bash
+docker compose up --build
+```
 
 # What Changed?
 
@@ -43,3 +51,13 @@ Now we'd like to cash in on pre-commit hooks. This will remove some of the compl
 ### Things that got worse
 
 * We added a dependency on `pre-commit` to our project.
+
+# Summary
+
+Now your Dockerfile is almost back to its original simplicity, but you still have a lot of flexibility in your
+development environment. You can now add more pre-commit hooks to your project to make your life easier.
+
+If you'd like to speed up your builds even more, you can jump
+to [Extra 1 - Need for Speed](/extra-1-need-for-speed/README.md)
+
+Alternatively, if you already read that, you can jump to the [final result](/README.md#final-result) of the series.

@@ -2,7 +2,9 @@
 
 ## TL;DR
 
-For the impatient, you can always skip to the [final result](/README.md#final-result) of the series.
+For the impatient, you can always skip to the take The Red Pill 💊 and skip to
+the [final result](/README.md#final-result) of the series.
+
 
 ## Table of Contents
 
@@ -18,6 +20,12 @@ For the impatient, you can always skip to the [final result](/README.md#final-re
 * [Extra 2 - Moving Complexity](/extra-2-pre-commit/README.md) - Moving complexity away from the Dockerfile into
   pre-commit hooks
 * [Final Result](/README.md#final-result) - The final result of the series
+
+### Running The Example
+
+```bash
+docker compose up --build
+```
 
 # What Changed?
 
@@ -40,3 +48,7 @@ improve our experience with it.
 
 * More lines of code in our Dockerfile.
 
+# Summary
+
+Our container is in much better shape now, but there are still some things we can improve that are more on the advanced
+side of things. Let's do that in [Step 4](/step-4-nontrivial-improvements/README.md)
