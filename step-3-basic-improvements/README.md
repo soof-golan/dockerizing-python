@@ -5,7 +5,6 @@
 For the impatient, you can always skip to the take The Red Pill 💊 and skip to
 the [final result](/README.md#final-result) of the series.
 
-
 ## Table of Contents
 
 * [Step 1 - Keep it simple stupid](/step-1-kiss-requirements/README.md) - A simple Dockerfile
@@ -39,11 +38,11 @@ RUN pip install poetry==1.7.0
 
 WORKDIR /app
 
-# Only install dependencies without the "root" package
+# Only install external dependencies without the our own code.
 COPY poetry.lock pyproject.toml ./
 RUN poetry install --no-root --with prod
 
-# Install the "root" package after copying the rest of the code
+# Install the our own package after copying the rest of the code
 COPY . .
 RUN poetry install
 
@@ -53,14 +52,15 @@ CMD ["poetry", "run", "gunicorn", "basic_improvements.main:app"]
 ## Changes from previous step
 
 * We pinned the poetry version to the latest stable version (as of time of writing: 1.7.0).
-* We split up the installation of the project dependencies and the installation of the project itself.
+* We split up the installation of external dependencies and the installation of the project itself to separate steps.
 
 ### No new files ✨
 
 ### Things that got better
 
 * We're now protected from poetry being updated to a version that breaks our project.
-* Splitting the dependency installation utilizes Docker's _layer_ caching mechanism. (our builds are now faster)
+* Splitting the dependency installation to 2 steps utilizes Docker's _layer_ caching mechanism. (our builds are now
+  faster)
 
 ### Things that got worse
 

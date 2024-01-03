@@ -4,11 +4,11 @@ RUN pip install poetry==1.7.0
 
 WORKDIR /app
 
-# Only install dependencies without the "root" package
+# Only install external dependencies without the our own code.
 COPY poetry.lock pyproject.toml ./
 RUN poetry install --no-root --with prod
 
-# Install the "root" package after copying the rest of the code
+# Install the our own package after copying the rest of the code
 COPY . .
 RUN poetry install
 
