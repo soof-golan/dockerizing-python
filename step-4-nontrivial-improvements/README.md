@@ -63,9 +63,10 @@ WORKDIR /app
 COPY --from=stage-1-poetry-export /app/requirements.txt ./
 RUN pip install --require-hashes -r requirements.txt
 
+# Copy the rest of the code
 COPY . .
 
-# Install the "root" package after copying the rest of the code
+# Install the "root" package
 RUN pip install . --no-deps
 
 CMD ["gunicorn", "nontrivial.main:app"]
@@ -98,7 +99,7 @@ CMD ["gunicorn", "nontrivial.main:app"]
 ### Things that got better
 
 * Our builds are faster now (thanks to stage separation).
-* We no use poetry in our final image.
+* We don't use poetry in our final image.
     * As a side effect, we no longer use a virtual environment inside our container.
 * Python is now configured to in a way that is more friendly to container runtimes.
 

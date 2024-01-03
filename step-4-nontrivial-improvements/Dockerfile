@@ -28,9 +28,10 @@ WORKDIR /app
 COPY --from=stage-1-poetry-export /app/requirements.txt ./
 RUN pip install --require-hashes -r requirements.txt
 
+# Copy the rest of the code
 COPY . .
 
-# Install the "root" package after copying the rest of the code
+# Install the "root" package
 RUN pip install . --no-deps
 
 CMD ["gunicorn", "nontrivial.main:app"]
