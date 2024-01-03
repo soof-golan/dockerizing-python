@@ -8,12 +8,15 @@ WORKDIR /app
 # Copy dependency files
 COPY poetry.lock pyproject.toml ./
 
-# Generate a requirements.txt from our lock file
+# Generate a requirements.txt from our lock file.
+# The generated requirements.txt contains SHA256 hashes of each dependency.
 RUN poetry export \
     --with prod \
     --output requirements.txt \
     --format requirements.txt
 
+# Next stage
+# NOTE: We don't use poetry in this stage.
 FROM python:3.11 as stage-2-server
 
 # Configure Python things to play nicely with the container host
