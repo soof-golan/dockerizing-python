@@ -5,7 +5,6 @@
 For the impatient, you can always skip to the take The Red Pill 💊 and skip to
 the [final result](/README.md#final-result) of the series.
 
-
 ## Table of Contents
 
 * [Step 1 - Keep it simple stupid](/step-1-kiss-requirements/README.md) - A simple Dockerfile
@@ -48,6 +47,12 @@ and mean.
       will not write `.pyc` files to disk.
     * [PIP_DISABLE_PIP_VERSION_CHECK](https://pip.pypa.io/en/stable/user_guide/#environment-variables) - Pip will not
       check for new versions of itself. (Mainly cleans up the logs)
+
+#### Explicitly Omitted Options
+
+* [PYTHONOPTIMIZE](https://docs.python.org/3.11/using/cmdline.html#envvar-PYTHONOPTIMIZE) - Some packages rely on assert
+  statements or docstrings to function properly. This environment variable will break those packages. (
+  E.g. [Marvin AI](https://github.com/PrefectHQ/marvin))
 
 ### No new files ✨
 
