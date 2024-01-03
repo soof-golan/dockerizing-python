@@ -32,6 +32,24 @@ docker compose up --build
 There are some basic improvements we can make to the image we created in the previous step that will significantly
 improve our experience with it.
 
+```dockerfile
+FROM python:3.11
+# Pin poetry version to avoid breaking changes
+RUN pip install poetry==1.7.0
+
+WORKDIR /app
+
+# Only install dependencies without the "root" package
+COPY poetry.lock pyproject.toml ./
+RUN poetry install --no-root --with prod
+
+# Install the "root" package after copying the rest of the code
+COPY . .
+RUN poetry install
+
+CMD ["poetry", "run", "gunicorn", "basic_improvements.main:app"]
+```
+
 ## Changes from previous step
 
 * We pinned the poetry version to the latest stable version (as of time of writing: 1.7.0).

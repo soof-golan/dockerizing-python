@@ -32,6 +32,22 @@ docker-compose up --build
 We're all civilized people here, we're not going to use requirements.txt directly. We're going to use Poetry to manage
 our dependencies. This will make our lives easier in the long run.
 
+
+```dockerfile
+FROM python:3.11
+
+# Install poetry
+RUN pip install poetry
+
+WORKDIR /app
+COPY . .
+
+# Install dependencies with Poetry
+RUN poetry install --with prod
+
+CMD ["poetry", "run", "gunicorn", "kiss.main:app"]
+```
+
 ## Changes from previous step
 
 * We added [Poetry](https://python-poetry.org/) to our project.

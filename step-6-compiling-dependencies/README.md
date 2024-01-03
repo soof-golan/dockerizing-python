@@ -34,6 +34,32 @@ to connect to our database. problem is, psycopg2 is a C extension that needs to
 be [compiled from source](https://www.psycopg.org/docs/install.html#psycopg-vs-psycopg-binary). This means we
 need to install the build tools and the postgresql development libraries in our image.
 
+Our [Dockerfile](./Dockerfile) hasn't changed, but we may need to install some extra dependencies in our image.
+
+```dockerfile
+FROM python:3.11 as poetry-export
+RUN pip install poetry==1.7.0
+WORKDIR /app
+COPY poetry.lock pyproject.toml ./
+RUN poetry export \
+    --without dev \
+    --with prod \
+    --output requirements.txt \
+    --format requirements.txt
+
+FROM python:3.11 as server
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PYTHONFAULTHANDLER=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1
+WORKDIR /app
+COPY --from=poetry-export /app/requirements.txt ./
+RUN pip install --require-hashes -r requirements.txt
+COPY . .
+RUN pip install . --no-deps
+CMD ["gunicorn", "compiling_depenedencies.main:app"]
+```
+
 ## Changes from previous step
 
 * We added psycopg2 to our production dependencies.
@@ -60,7 +86,7 @@ to compile successfully. This is usually not a problem when using the regular Py
 when using the _`-slim`_ variant, which usually misses the development libraries you need.
 
 If you like suffering from using `apt-get`, you can install the build dependencies for the packages you need. See the
-`slim.Dockerfile` variant in this folder for an example.
+[`slim.Dockerfile`](./slim.Dockerfile) variant in this folder for an example.
 
 Also - **Stay away from `alpine` images** unless you have excellent reasons to use them. You don't want to deal with the
 ABI / compilation hell that is `musl` vs `glibc` with python packages.
@@ -74,3 +100,37 @@ project [~~FROM scratch~~](https://hub.docker.com/_/scratch/).
 We've got 2 extra steps to go, but they're not strictly necessary, but they will make your life easier in the long run.
 Check out [Extra 1 - Need For Speed](/extra-1-need-for-speed/README.md)
 and [Extra 2 - Moving Complexity](/extra-2-pre-commit/README.md) for more details.
+
+```dockerfile
+FROM python:3.11-slim as poetry-export
+RUN pip install poetry==1.7.0
+WORKDIR /app
+COPY poetry.lock pyproject.toml ./
+RUN poetry export \
+    --without dev \
+    --with prod \
+    --output requirements.txt \
+    --format requirements.txt
+
+# The -slim image is missing some build dependencies
+FROM python:3.11-slim as server
+
+# Install build dependencies for psycopg2
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libpq-dev \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean \
+    && apt-get autoremove -y
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PYTHONFAULTHANDLER=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1
+WORKDIR /app
+COPY --from=poetry-export /app/requirements.txt ./
+RUN pip install --require-hashes -r requirements.txt
+COPY . .
+RUN pip install . --no-deps
+CMD ["gunicorn", "compiling_depenedencies.main:app"]
+```

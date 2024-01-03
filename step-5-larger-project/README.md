@@ -5,7 +5,6 @@
 For the impatient, you can always skip to the take The Red Pill 💊 and skip to
 the [final result](/README.md#final-result) of the series.
 
-
 ## Table of Contents
 
 * [Step 1 - Keep it simple stupid](/step-1-kiss-requirements/README.md) - A simple Dockerfile
@@ -33,6 +32,33 @@ Our project is getting larger and more complex. We now have a `tests/` folder, w
 formatting
 tools, and we even have some development only dependencies. This is a good time to be more selective about what we put
 in our production image, and what we leave out.
+
+```dockerfile
+FROM python:3.11 as poetry-export
+RUN pip install poetry==1.7.0
+WORKDIR /app
+COPY poetry.lock pyproject.toml ./
+
+# Excluded the `dev` dependencies
+RUN poetry export \
+    --without dev \
+    --with prod \
+    --output requirements.txt \
+    --format requirements.txt
+
+# This build stage stayed the same
+FROM python:3.11 as server
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PYTHONFAULTHANDLER=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1
+WORKDIR /app
+COPY --from=poetry-export /app/requirements.txt ./
+RUN pip install --require-hashes -r requirements.txt
+COPY . .
+RUN pip install . --no-deps
+CMD ["gunicorn", "larger_project.main:app"]
+```
 
 ## Changes from previous step
 

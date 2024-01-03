@@ -2,7 +2,7 @@
 
 ## TL;DR
 
-For the impatient, you can always skip to the take The Red Pill 💊 and skip to
+For the impatient, you can always skip and the take The Red Pill 💊 and skip to
 the [final result](/README.md#final-result) of the series.
 
 ## What is this?
