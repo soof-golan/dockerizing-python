@@ -123,4 +123,11 @@ docker compose up --build
     * Build Caching is its own can of worms in this case.
 * Testing containers with [pytest-testinfra](https://testinfra.readthedocs.io/en/latest/)
 * Deployment - Using [GCP Cloud Run](https://cloud.google.com/run) / [Fly.io](https://fly.io/)
-* 
+* Optimizations - How to make your containers start faster. Several approaches:
+    * Keeping things in memory: don't create a new DB connection on every request.
+    * Lazy imports: import dependencies only when needed.
+    * Smaller images: using less dependencies, consider using -slim.
+* Debugging
+    * Attaching a shell to a running container
+    * Attaching a debugger to the running Python process
+* TLS Termination - TL;DR - Use your load balancer for this unless you have a good reason not to.
