@@ -1,0 +1,12 @@
+services:
+  server:
+    build:
+      context: .
+      tags:
+        - "pre_commit:latest"
+    ports:
+      - "8000:8000"
+    environment:
+      PORT: "8000"
+      HOST: "0.0.0.0"
+      WORKERS: "1"

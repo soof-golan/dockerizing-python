@@ -1,0 +1,30 @@
+services:
+  server:
+    build:
+      context: .
+      tags:
+        - "compiling_deps:latest"
+    ports:
+      - "8000:8000"
+    environment:
+      PORT: "8000"
+      HOST: "0.0.0.0"
+      WORKERS: "1"
+
+  slim_server:
+    build:
+      context: .
+      dockerfile: slim.Dockerfile
+      tags:
+        - "compiling_deps:slim-latest"
+    ports:
+      - "8001:8001"
+    environment:
+      PORT: "8001"
+      HOST: "0.0.0.0"
+      WORKERS: "1"
+
+volumes:
+  db-data:
+    name: db-data
+    driver: local

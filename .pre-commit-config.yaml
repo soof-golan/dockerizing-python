@@ -1,0 +1,33 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+  - repo: https://github.com/python-poetry/poetry
+    rev: "1.7.1"
+    hooks:
+      - id: poetry-check
+      - id: poetry-lock
+      - id: poetry-export
+        args: [ "--with", "prod", "--without", "dev", "--format", "requirements.txt" , "--output", "requirements.txt" ]
+
+  # Just here for reference for the 'Extra 2' example
+  - repo: local
+    hooks:
+      - id: extra-2-poetry-export
+        name: Extra 2 - Poetry Export
+        language: system
+        entry: poetry
+        files: "extra-2-pre-commit/poetry.lock"
+        pass_filenames: false
+        args:
+          - "export"
+          - "--directory"
+          - "extra-2-pre-commit"
+          - "--without-hashes"
+          - "--with"
+          - "prod"
+          - "--without"
+          - "dev"
+          - "--format"
+          - "requirements.txt"
+          - "--output"
+          - "extra-2-pre-commit/requirements.txt"
