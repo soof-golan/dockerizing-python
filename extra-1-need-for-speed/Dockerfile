@@ -31,4 +31,7 @@ COPY . .
 RUN --mount=type=cache,target=/root/.cache/pip \
     pip install . --no-deps
 
+# Compile "all" Python files in the PYTHONPATH to bytescode (10 levels deep)
+RUN python -m compileall $(python -c "import sys; print(' '.join(sys.path), end='')") -r 10
+
 CMD ["gunicorn", "need_for_speed.main:app"]

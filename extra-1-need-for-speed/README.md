@@ -5,7 +5,6 @@
 For the impatient, you can always skip to the take The Red Pill 💊 and skip to
 the [final result](/README.md#final-result) of the series.
 
-
 ## Table of Contents
 
 * [Step 1 - Keep it simple stupid](/step-1-kiss-requirements/README.md) - A simple Dockerfile
@@ -66,6 +65,9 @@ COPY . .
 RUN --mount=type=cache,target=/root/.cache/pip \
     pip install . --no-deps
 
+# Compile "all" Python files in the PYTHONPATH to bytescode (10 levels deep)
+RUN python -m compileall $(python -c "import sys; print(' '.join(sys.path), end='')") -r 10
+
 CMD ["gunicorn", "need_for_speed.main:app"]
 ```
 
@@ -74,10 +76,16 @@ CMD ["gunicorn", "need_for_speed.main:app"]
 * We added [cache mounts](https://docs.docker.com/build/cache/) to our Dockerfile.
 * The `poetry-export` stage now uses a `-slim` variant of the Python base image.
     * For the keen eyed of you: this is quite safe, as we only install poetry in this stage.
+* We pre-compile all Python files in the image.
 
 ### Things that got better
 
 * Our builds are even faster now (thanks to cache mounts, and a smaller base image for the `poetry-export` stage).
+* Startup time is slightly faster due to pre-compiling the python bytecode.
+
+### Things that got worse
+
+* Our image is now slightly larger due to the `compileall` step.
 
 # Summary
 
