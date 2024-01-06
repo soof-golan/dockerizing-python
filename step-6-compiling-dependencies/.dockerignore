@@ -11,6 +11,10 @@
 
 ### Ignore all the usual crappy file patterns
 
+# https://docs.docker.com/engine/reference/builder/#dockerignore-file
+# .gockerignore file behavior is different from .gitignore
+# To mostly match the behavior of git, use `**/<the-pattern-you-are-used-to-using>`
+
 ### VisualStudioCode template
 **/.vscode/*
 !**/.vscode/settings.json
