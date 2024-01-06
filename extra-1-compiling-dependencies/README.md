@@ -134,3 +134,15 @@ COPY . .
 RUN pip install . --no-deps
 CMD ["gunicorn", "compiling_depenedencies.main:app"]
 ```
+
+# Summary
+
+You've learned how to handle packages that require compilation, and you've learned how to use the `-slim` variant of the
+Python base image.
+
+If you'd like to speed up your builds, you can jump to [Extra 2 - Need for Speed](../extra-2-need-for-speed/README.md)
+
+If you feel like your Dockerfile is getting too complex, you can jump
+in [Extra 3 - Moving Complexity](../extra-3-moving-complexity/README.md)
+
+Alternatively, if you already read that, you can jump to the [final result](../README.md#final-result) of the series.

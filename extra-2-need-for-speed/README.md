@@ -16,7 +16,8 @@ the [final result](../README.md#final-result) of the series.
 * [Step 6 - Compiling Dependencies](../extra-1-compiling-dependencies/README.md) - Handling packages that require
   compilation
 * [Extra 1 - Need for Speed](/README.md) - Caching everything
-* [Extra 2 - Moving Complexity](../extra-3-moving-complexity/README.md) - Moving complexity away from the Dockerfile into
+* [Extra 2 - Moving Complexity](../extra-3-moving-complexity/README.md) - Moving complexity away from the Dockerfile
+  into
   pre-commit hooks
 * [Final Result](../README.md#final-result) - The final result of the series
 
@@ -89,8 +90,12 @@ CMD ["gunicorn", "need_for_speed.main:app"]
 
 # Summary
 
-Now your builds are even faster, but there's still some complexity in the Dockerfile. Let's move that complexity away
-from
-the Dockerfile in [Extra 2 - Moving Complexity](../extra-3-moving-complexity/README.md)
+Now your builds are even faster, but there's still some complexity in the Dockerfile.
+
+If you are in need of compiling some packages, you can jump to
+[Extra 1 - Compiling Dependencies](../extra-1-compiling-dependencies/README.md)
+
+If you feel like your Dockerfile is getting too complex, you can jump
+in [Extra 3 - Moving Complexity](../extra-3-moving-complexity/README.md)
 
 Alternatively, if you already read that, you can jump to the [final result](../README.md#final-result) of the series.

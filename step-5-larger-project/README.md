@@ -90,4 +90,6 @@ CMD ["gunicorn", "larger_project.main:app"]
 
 This is a good time to take a step back and look at our Dockerfile. This will fit most projects' needs, but there are
 still some dark corners of the python packaging ecosystem that we haven't explored yet. Let's fix that in
-[Step 6](/extra-1-compiling-dependencies/README.md)
+[Extra 1](../extra-1-compiling-dependencies/README.md) - Compiling Dependencies
+[Extra 2](../extra-2-need-for-speed/README.md) - Need for Speed
+[Extra 3](../extra-3-moving-complexity/README.md) - Moving Complexity

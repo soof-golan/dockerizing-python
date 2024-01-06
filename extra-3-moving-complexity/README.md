@@ -74,7 +74,10 @@ CMD ["gunicorn", "pre_commit.main:app"]
 Now your Dockerfile is almost back to its original simplicity, but you still have a lot of flexibility in your
 development environment. You can now add more pre-commit hooks to your project to make your life easier.
 
+If you are in need of compiling some packages, you can jump to
+[Extra 1 - Compiling Dependencies](../extra-1-compiling-dependencies/README.md)
+
 If you'd like to speed up your builds even more, you can jump
-to [Extra 1 - Need for Speed](../extra-2-need-for-speed/README.md)
+to [Extra 2 - Need for Speed](../extra-2-need-for-speed/README.md)
 
 Alternatively, if you already read that, you can jump to the [final result](../README.md#final-result) of the series.
