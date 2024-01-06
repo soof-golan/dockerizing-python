@@ -22,7 +22,7 @@ The goal is to end up with a Dockerfile that is both simple, robust and easy to 
 * [Step 3 - Basic Improvements](./step-3-basic-improvements/README.md) - A more robust Dockerfile, with a few
   improvements
 * [Step 4 - Nontrivial Improvements](./step-4-nontrivial-improvements/README.md) - Advanced Dockerfile features
-* [Step 5 - Growing Pains](./step-5-larger-project/README.md) - Larger project require extra care
+* [Step 5 - Growing Pains](./step-5-larger-project/README.md) - Larger projects require extra care
 * [Step 6 - Compiling Dependencies](./step-6-compiling-dependencies/README.md) - Handling packages that require
   compilation
 * [Extra 1 - Need for Speed](./extra-1-need-for-speed/README.md) - Caching everything
