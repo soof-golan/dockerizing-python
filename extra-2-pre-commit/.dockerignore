@@ -2,7 +2,7 @@
 *
 
 # Add back only what you need
-!pre_commit
+!src
 !requirements.txt
 !pyproject.toml
 !poetry.lock

@@ -2,7 +2,7 @@
 *
 
 # Add back only what you need
-!need_for_speed
+!src
 !pyproject.toml
 !poetry.lock
 !gunicorn.conf.py
