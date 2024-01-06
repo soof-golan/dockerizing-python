@@ -28,23 +28,25 @@ docker-compose up --build
 
 # A Starting Point
 
-This is the requirements.txt variant of the KISS Dockerized Python Image.
+This is a simple Dockerfile for a Python project. We copy all of our application files into the image, install the
+dependencies from a requirements.txt file, and run our server.
 
 ```dockerfile
 # We start with the python3.11 base image.
 FROM python:3.11
 
-# Create the /app (this is where we will store our application code)
+# Create the /app directory
 WORKDIR /app
 
-# Copy all of the files from the current directory into the /app directory
+# Copy all of our code into the /app directory
 COPY . .
 
-# Install the dependencies from requirements.txt
+# Install our dependencies
 RUN pip install -r requirements.txt
 
-# Run the application
+# Run the production server
 CMD ["gunicorn", "kiss.main:app"]
+
 ```
 
 This will be our reference point for the rest of the examples, and we will incrementally improve it to a full-fledged
