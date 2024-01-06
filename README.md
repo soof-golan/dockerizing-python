@@ -3,7 +3,7 @@
 ## TL;DR
 
 For the impatient, you can always skip and the take The Red Pill 💊 and skip to
-the [final result](/README.md#final-result) of the series.
+the [final result](#final-result) of the series.
 
 ## What is this?
 
@@ -17,18 +17,18 @@ The goal is to end up with a Dockerfile that is both simple, robust and easy to 
 
 ## Table of Contents
 
-* [Step 1 - Keep it simple stupid](/step-1-kiss-requirements/README.md) - A simple Dockerfile
-* [Step 2 - Keep it simple - with Poetry](/step-2-kiss-poetry/README.md) - A simple Dockerfile with Poetry
-* [Step 3 - Basic Improvements](/step-3-basic-improvements/README.md) - A more robust Dockerfile, with a few
+* [Step 1 - Keep it simple stupid](./step-1-kiss-requirements/README.md) - A simple Dockerfile
+* [Step 2 - Keep it simple - with Poetry](./step-2-kiss-poetry/README.md) - A simple Dockerfile with Poetry
+* [Step 3 - Basic Improvements](./step-3-basic-improvements/README.md) - A more robust Dockerfile, with a few
   improvements
-* [Step 4 - Nontrivial Improvements](/step-4-nontrivial-improvements/README.md) - Advanced Dockerfile features
-* [Step 5 - Growing Pains](/step-5-larger-project/README.md) - Larger project require extra care
-* [Step 6 - Compiling Dependencies](/step-6-compiling-dependencies/README.md) - Handling packages that require
+* [Step 4 - Nontrivial Improvements](./step-4-nontrivial-improvements/README.md) - Advanced Dockerfile features
+* [Step 5 - Growing Pains](./step-5-larger-project/README.md) - Larger project require extra care
+* [Step 6 - Compiling Dependencies](./step-6-compiling-dependencies/README.md) - Handling packages that require
   compilation
-* [Extra 1 - Need for Speed](/extra-1-need-for-speed/README.md) - Caching everything
-* [Extra 2 - Moving Complexity](/extra-2-pre-commit/README.md) - Moving complexity away from the Dockerfile into
+* [Extra 1 - Need for Speed](./extra-1-need-for-speed/README.md) - Caching everything
+* [Extra 2 - Moving Complexity](./extra-2-pre-commit/README.md) - Moving complexity away from the Dockerfile into
   pre-commit hooks
-* [Final Result](/README.md#final-result) - The final result of the series
+* [Final Result](#final-result) - The final result of the series
 
 ## Pre-requisites
 
@@ -49,6 +49,24 @@ contains the final result of that step. To see the final result of each step in 
 cd <step-folder>
 docker compose up --build
 ```
+
+# A Starting Point
+
+This is our stupidly simple starting point:
+
+```dockerfile
+FROM python:3.11
+WORKDIR /app
+COPY . .
+RUN pip install -r requirements.txt
+CMD ["gunicorn", "kiss.main:app"]
+```
+
+We'll start with this Dockerfile, and incrementally improve it until we have a
+production-ready image. I'll see you in [Step 1](./step-1-kiss-requirements/README.md), and we'll build up from there.
+
+[![Step 1 cURL Example](./assets/step-1-curl.png)](./step-1-kiss-requirements/README.md)
+
 
 # Final Result
 
@@ -104,13 +122,13 @@ docker compose up --build
     * _dev_ - Dependencies that are only needed for development. (e.g. `pytest`)
     * _prod_ - Dependencies that are only needed for production. (e.g. `gunicorn`)
 * We use `poetry export` to generate a `requirements.txt` file. (
-  see [step-4-nontrivial-improvements](step-4-nontrivial-improvements/README.md))
+  see [step-4-nontrivial-improvements](./step-4-nontrivial-improvements/README.md))
     * Optionally with a [Pre-commit](https://pre-commit.com/) hook to keep it up to date. (
-      see [extra-2-pre-commit](extra-2-pre-commit/README.md))
+      see [extra-2-pre-commit](./extra-2-pre-commit/README.md))
 * We use utilize Docker's [build cache](https://docs.docker.com/build/cache/) to speed up our builds. (see
-  [extra-1-need-for-speed](extra-1-need-for-speed/README.md))
+  [extra-1-need-for-speed](./extra-1-need-for-speed/README.md))
 * We only copy what we need into the build context with [`.dockerignore`](./.dockerignore). (see
-  [step-5-larger-project](step-5-larger-project/README.md))
+  [step-5-larger-project](./step-5-larger-project/README.md))
 
 ## Summary of all the stuff we avoided
 

@@ -3,22 +3,22 @@
 ## TL;DR
 
 For the impatient, you can always skip to the take The Red Pill 💊 and skip to
-the [final result](/README.md#final-result) of the series.
+the [final result](../README.md#final-result) of the series.
 
 ## Table of Contents
 
-* [Step 1 - Keep it simple stupid](/step-1-kiss-requirements/README.md) - A simple Dockerfile
-* [Step 2 - Keep it simple - with Poetry](/step-2-kiss-poetry/README.md) - A simple Dockerfile with Poetry
-* [Step 3 - Basic Improvements](/step-3-basic-improvements/README.md) - A more robust Dockerfile, with a few
+* [Step 1 - Keep it simple stupid](../step-1-kiss-requirements/README.md) - A simple Dockerfile
+* [Step 2 - Keep it simple - with Poetry](../step-2-kiss-poetry/README.md) - A simple Dockerfile with Poetry
+* [Step 3 - Basic Improvements](../step-3-basic-improvements/README.md) - A more robust Dockerfile, with a few
   improvements
-* [Step 4 - Nontrivial Improvements](/step-4-nontrivial-improvements/README.md) - Advanced Dockerfile features
-* [Step 5 - Growing Pains](/step-5-larger-project/README.md) - Larger project require extra care
-* [Step 6 - Compiling Dependencies](/step-6-compiling-dependencies/README.md) - Handling packages that require
+* [Step 4 - Nontrivial Improvements](../step-4-nontrivial-improvements/README.md) - Advanced Dockerfile features
+* [Step 5 - Growing Pains](../step-5-larger-project/README.md) - Larger project require extra care
+* [Step 6 - Compiling Dependencies](../step-6-compiling-dependencies/README.md) - Handling packages that require
   compilation
-* [Extra 1 - Need for Speed](/extra-1-need-for-speed/README.md) - Caching everything
-* [Extra 2 - Moving Complexity](/extra-2-pre-commit/README.md) - Moving complexity away from the Dockerfile into
+* [Extra 1 - Need for Speed](../extra-1-need-for-speed/README.md) - Caching everything
+* [Extra 2 - Moving Complexity](../extra-2-pre-commit/README.md) - Moving complexity away from the Dockerfile into
   pre-commit hooks
-* [Final Result](/README.md#final-result) - The final result of the series
+* [Final Result](../README.md#final-result) - The final result of the series
 
 ### Running The Example
 
@@ -113,4 +113,4 @@ CMD ["gunicorn", "nontrivial.main:app"]
 # Summary
 
 For small projects, this is more than enough. But as your project grows, you'll need to make some more changes to your
-Dockerfile. Let's do that in [Step 5](/step-5-larger-project/README.md)
+Dockerfile. Let's do that in [Step 5](../step-5-larger-project/README.md)
