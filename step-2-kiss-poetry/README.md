@@ -13,11 +13,11 @@ the [final result](../README.md#final-result) of the series.
   improvements
 * [Step 4 - Nontrivial Improvements](../step-4-nontrivial-improvements/README.md) - Advanced Dockerfile features
 * [Step 5 - Growing Pains](../step-5-larger-project/README.md) - Larger projects require extra care
-* [Step 6 - Compiling Dependencies](../step-6-compiling-dependencies/README.md) - Handling packages that require
+* [Extra 1 - Compiling Dependencies](../extra-1-compiling-dependencies/README.md) - Handling packages that require
   compilation
-* [Extra 1 - Need for Speed](../extra-1-need-for-speed/README.md) - Caching everything
-* [Extra 2 - Moving Complexity](../extra-2-pre-commit/README.md) - Moving complexity away from the Dockerfile into
-  pre-commit hooks
+* [Extra 2 - Need for Speed](../extra-2-need-for-speed/README.md) - Caching everything
+* [Extra 3 - Moving Complexity](../extra-3-moving-complexity/README.md) - Moving complexity away from the Dockerfile
+  into pre-commit hooks
 * [Final Result](../README.md#final-result) - The final result of the series
 
 ### Running The Example

@@ -23,13 +23,13 @@ repos:
       - id: extra-2-poetry-export
         name: Extra 2 - Poetry Export
         language: python
-        files: "extra-2-pre-commit/poetry.lock"
+        files: "extra-3-moving-complexity/poetry.lock"
         pass_filenames: false
         entry: poetry
         args:
           - "export"
           - "--directory"
-          - "extra-2-pre-commit"
+          - "extra-3-moving-complexity"
           - "--with"
           - "prod"
           - "--without"
@@ -37,4 +37,4 @@ repos:
           - "--format"
           - "requirements.txt"
           - "--output"
-          - "extra-2-pre-commit/requirements.txt"
+          - "extra-3-moving-complexity/requirements.txt"

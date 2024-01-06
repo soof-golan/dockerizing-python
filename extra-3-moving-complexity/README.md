@@ -1,4 +1,4 @@
-# Extra 2 - Pre Commit 🎣 (Moving complexity)
+# Moving Complexity - (Pre Commit 🎣)
 
 ## TL;DR
 
@@ -13,11 +13,11 @@ the [final result](../README.md#final-result) of the series.
   improvements
 * [Step 4 - Nontrivial Improvements](../step-4-nontrivial-improvements/README.md) - Advanced Dockerfile features
 * [Step 5 - Growing Pains](../step-5-larger-project/README.md) - Larger projects require extra care
-* [Step 6 - Compiling Dependencies](../step-6-compiling-dependencies/README.md) - Handling packages that require
+* [Extra 1 - Compiling Dependencies](../extra-1-compiling-dependencies/README.md) - Handling packages that require
   compilation
-* [Extra 1 - Need for Speed](../extra-1-need-for-speed/README.md) - Caching everything
-* [Extra 2 - Moving Complexity](../extra-2-pre-commit/README.md) - Moving complexity away from the Dockerfile into
-  pre-commit hooks
+* [Extra 2 - Need for Speed](../extra-2-need-for-speed/README.md) - Caching everything
+* [Extra 3 - Moving Complexity](../extra-3-moving-complexity/README.md) - Moving complexity away from the Dockerfile
+  into pre-commit hooks
 * [Final Result](../README.md#final-result) - The final result of the series
 
 ### Running The Example
@@ -75,6 +75,6 @@ Now your Dockerfile is almost back to its original simplicity, but you still hav
 development environment. You can now add more pre-commit hooks to your project to make your life easier.
 
 If you'd like to speed up your builds even more, you can jump
-to [Extra 1 - Need for Speed](../extra-1-need-for-speed/README.md)
+to [Extra 1 - Need for Speed](../extra-2-need-for-speed/README.md)
 
 Alternatively, if you already read that, you can jump to the [final result](../README.md#final-result) of the series.

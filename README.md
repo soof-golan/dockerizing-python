@@ -23,10 +23,10 @@ The goal is to end up with a Dockerfile that is both simple, robust and easy to 
   improvements
 * [Step 4 - Nontrivial Improvements](./step-4-nontrivial-improvements/README.md) - Advanced Dockerfile features
 * [Step 5 - Growing Pains](./step-5-larger-project/README.md) - Larger projects require extra care
-* [Step 6 - Compiling Dependencies](./step-6-compiling-dependencies/README.md) - Handling packages that require
+* [Extra 1 - Compiling Dependencies](./extra-1-compiling-dependencies/README.md) - Handling packages that require
   compilation
-* [Extra 1 - Need for Speed](./extra-1-need-for-speed/README.md) - Caching everything
-* [Extra 2 - Moving Complexity](./extra-2-pre-commit/README.md) - Moving complexity away from the Dockerfile into
+* [Extra 2 - Need for Speed](./extra-2-need-for-speed/README.md) - Need For Speed - Caching everything
+* [Extra 3 - Moving Complexity](./extra-3-moving-complexity/README.md) - Moving complexity away from the Dockerfile into
   pre-commit hooks
 * [Final Result](#final-result) - The final result of the series
 
@@ -63,10 +63,10 @@ CMD ["gunicorn", "kiss.main:app"]
 ```
 
 We'll start with this Dockerfile, and incrementally improve it until we have a
-production-ready image. I'll see you in [Step 1](./step-1-kiss-requirements/README.md#a-starting-point), and we'll build up from there.
+production-ready image. I'll see you in [Step 1](./step-1-kiss-requirements/README.md#a-starting-point), and we'll build
+up from there.
 
 [![Step 1 cURL Example](./assets/step-1-curl.png)](./step-1-kiss-requirements/README.md#a-starting-point)
-
 
 # Final Result
 
@@ -124,17 +124,20 @@ docker compose up --build
 * We use `poetry export` to generate a `requirements.txt` file. (
   see [step-4-nontrivial-improvements](./step-4-nontrivial-improvements/README.md))
     * Optionally with a [Pre-commit](https://pre-commit.com/) hook to keep it up to date. (
-      see [extra-2-pre-commit](./extra-2-pre-commit/README.md))
-* We use utilize Docker's [build cache](https://docs.docker.com/build/cache/) to speed up our builds. (see
-  [extra-1-need-for-speed](./extra-1-need-for-speed/README.md))
+      see [extra-3-moving-complexity](./extra-3-moving-complexity/README.md))
+* We utilize Docker's [build cache](https://docs.docker.com/build/cache/) to speed up our builds. (see
+  [extra-2-need-for-speed](./extra-2-need-for-speed/README.md))
 * We only copy what we need into the build context with [`.dockerignore`](./.dockerignore). (see
   [step-5-larger-project](./step-5-larger-project/README.md))
 
 ## Summary of all the stuff we avoided
 
 * We managed to get away without multi-stage builds (sometime this is necessary, but not in our case).
+  see [extra-3-moving-complexity](./extra-3-moving-complexity/README.md)
 * We avoid -slim and -alpine variants of the Python base image.
+  see [extra-1-compiling-dependencies](./extra-1-compiling-dependencies/README.md)
 * We avoided using a virtual environment inside the container.
+  see [step-4-nontrivial-improvements](./step-4-nontrivial-improvements/README.md)
 
 # Things that didn't make the cut
 
