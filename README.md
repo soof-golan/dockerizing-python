@@ -63,7 +63,7 @@ CMD ["gunicorn", "kiss.main:app"]
 ```
 
 We'll start with this Dockerfile, and incrementally improve it until we have a
-production-ready image. I'll see you in [Step 1](./step-1-kiss-requirements/README.md), and we'll build up from there.
+production-ready image. I'll see you in [Step 1](./step-1-kiss-requirements/README.md#a-starting-point), and we'll build up from there.
 
 [![Step 1 cURL Example](./assets/step-1-curl.png)](./step-1-kiss-requirements/README.md#a-starting-point)
 
