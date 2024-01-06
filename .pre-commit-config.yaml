@@ -7,22 +7,29 @@ repos:
       - id: poetry-check
       - id: poetry-lock
       - id: poetry-export
-        args: [ "--with", "prod", "--without", "dev", "--format", "requirements.txt" , "--output", "requirements.txt" ]
+        args:
+          - "--with"
+          - "prod"
+          - "--without"
+          - "dev"
+          - "--format"
+          - "requirements.txt"
+          - "--output"
+          - "requirements.txt"
 
   # Just here for reference for the 'Extra 2' example
   - repo: local
     hooks:
       - id: extra-2-poetry-export
         name: Extra 2 - Poetry Export
-        language: system
-        entry: poetry
+        language: python
         files: "extra-2-pre-commit/poetry.lock"
         pass_filenames: false
+        entry: poetry
         args:
           - "export"
           - "--directory"
           - "extra-2-pre-commit"
-          - "--without-hashes"
           - "--with"
           - "prod"
           - "--without"
