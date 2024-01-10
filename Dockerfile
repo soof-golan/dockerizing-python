@@ -1,4 +1,4 @@
-# Use the official Python image. no -slim or -alpine here!
+# Use the official Python image. Beware of -slim or -alpine here!
 FROM python:3.11
 
 # Configure Python to behave well inside the container.
@@ -17,6 +17,9 @@ COPY ./requirements.txt ./
 RUN --mount=type=cache,target=/root/.cache/pip \
     pip install --require-hashes -r requirements.txt
 
+# Compile "all" Python files in the PYTHONPATH to bytescode (10 levels deep)
+RUN python -m compileall $(python -c "import sys; print(' '.join(sys.path), end='')") -r 10
+
 # Copy the rest of the codebase into the image.
 COPY . .
 
@@ -24,8 +27,8 @@ COPY . .
 RUN --mount=type=cache,target=/root/.cache/pip \
     pip install . --no-deps
 
-# Compile "all" Python files in the PYTHONPATH to bytescode (10 levels deep)
-RUN python -m compileall $(python -c "import sys; print(' '.join(sys.path), end='')") -r 10
+# Compile our own source code
+RUN python -m compileall src -r 10
 
 # Start the production server.
 CMD ["gunicorn", "dockerizing_python.main:app"]

@@ -74,7 +74,7 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     pip install . --no-deps
 
 # Pre-compile our own source code
-RUN python -m compileall -r 10
+RUN python -m compileall src -r 10
 
 CMD ["gunicorn", "need_for_speed.main:app"]
 ```
