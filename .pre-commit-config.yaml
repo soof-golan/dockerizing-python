@@ -17,11 +17,11 @@ repos:
           - "--output"
           - "requirements.txt"
 
-  # Just here for reference for the 'Extra 2' example
+  # Just here for reference for the 'Extra 3' example
   - repo: local
     hooks:
-      - id: extra-2-poetry-export
-        name: Extra 2 - Poetry Export
+      - id: extra-3-poetry-export
+        name: Extra 3 - Poetry Export
         language: python
         files: "extra-3-moving-complexity/poetry.lock"
         pass_filenames: false
