@@ -10,7 +10,9 @@ the [final result](#final-result) of the series.
 This repository contains a series of examples on how to Dockerize Python applications. I tried to make each stage
 "production ready", so you should be able to use any of them as a starting point for your own project.
 
-You can follow along with the video on YouTube: [!TODO]
+You can follow along with [the video on YouTube ▶️](https://www.youtube.com/watch?v=PorXZuDiD0k):
+
+[![Video Thumbnail](https://img.youtube.com/vi/PorXZuDiD0k/0.jpg)](https://www.youtube.com/watch?v=PorXZuDiD0k)
 
 In each step, we will add a new feature to our Dockerfile, each addition will trade off somthing for something else.
 The goal is to end up with a Dockerfile that is both simple, robust and easy to maintain.
