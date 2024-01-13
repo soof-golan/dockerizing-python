@@ -28,12 +28,12 @@ jobs:
       - name: Cache pip
         uses: actions/cache@v3.3.3
         with:
-          path: pip-cache
-          key: pip-cache-${{ hashFiles(format('{0}/Dockerfile', matrix.sub-project)) }}
-      - name: inject pip-cache into docker
+          path: root-cache-pip
+          key: root-cache-pip-${{ hashFiles(format('{0}/Dockerfile', matrix.sub-project)) }}
+      - name: inject root-cache-pip into docker
         uses: reproducible-containers/buildkit-cache-dance@v2.1.3
         with:
-          cache-source: pip-cache
+          cache-source: root-cache-pip
           cache-target: /root/.cache/pip
       - uses: docker/build-push-action@v5.1.0
         with:
